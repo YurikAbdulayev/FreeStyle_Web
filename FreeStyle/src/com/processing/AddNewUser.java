@@ -6,6 +6,7 @@ import com.entity.Problem;
 import com.entity.Users;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,26 +22,25 @@ public class AddNewUser extends HttpServlet {
         Users users = new Users();
         Start start;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(request.getParameter("tflogin") != "") {
+            start.session.beginTransaction();
 
-        start.session.beginTransaction();
-
-        Users newUser = new Users(request.getParameter("tflogin"),
-                request.getParameter("tfname"),
-                Integer.parseInt(request.getParameter("tfphone")),
-                0,
-                Integer.parseInt(request.getParameter("tftariff")),
-                request.getParameter("tfaddres"),
-                "No",
-                request.getParameter("tfip"));
-        Problem userProblem = new Problem("NO");
-        MonOfUs mn = new MonOfUs(0, Integer.parseInt(request.getParameter("tftariff")), 0, "0");
-        start.session.save(mn);
-        start.session.save(userProblem);
-        start.session.save(newUser);
-        start.session.getTransaction().commit();
-
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/all_users_table");
-        dispatcher.forward(request, response);
+            Users newUser = new Users(request.getParameter("tflogin"),
+                    request.getParameter("tfname"),
+                    Integer.parseInt(request.getParameter("tfphone")),
+                    0,
+                    Integer.parseInt(request.getParameter("tftariff")),
+                    request.getParameter("tfaddres"),
+                    "No",
+                    request.getParameter("tfip"));
+            Problem userProblem = new Problem("NO");
+            MonOfUs mn = new MonOfUs(0, Integer.parseInt(request.getParameter("tftariff")), 0, "0");
+            start.session.save(mn);
+            start.session.save(userProblem);
+            start.session.save(newUser);
+            start.session.getTransaction().commit();
+        }
+        response.sendRedirect("/users_table");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

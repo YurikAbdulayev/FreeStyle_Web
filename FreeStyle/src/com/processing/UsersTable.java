@@ -13,7 +13,7 @@ import java.util.List;
  * Created by админ on 23.12.2014.
  */
 @WebServlet("/users_table")
-public class Servlet1 extends javax.servlet.http.HttpServlet {
+public class UsersTable extends javax.servlet.http.HttpServlet {
     List<Users> usersList;
     Users users = new Users();
 
@@ -31,7 +31,7 @@ public class Servlet1 extends javax.servlet.http.HttpServlet {
 
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-        System.out.println("OP doGet Servlet1");
+        System.out.println("OP doGet UsersTable");
         try {
             String s = "test message";
 
