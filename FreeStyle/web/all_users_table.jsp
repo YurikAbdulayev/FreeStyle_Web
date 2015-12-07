@@ -24,7 +24,7 @@
 
       <div id="templatemo_menu">
         <ul>
-          <li><a href="index.jsp" >Головна</a></li>
+          <li><a href="start_page.jsp" >Головна</a></li>
           <li><a href="/getTarPlan">Тарифні плани</a></li>
           <li><a href="corporate.jsp">Допомога клієнту</a></li>
           <li><a href="/getMonServ">Управління базою</a></li>
@@ -37,14 +37,14 @@
         <h3>Відділ новин для адмінів</h3>
 
         <div class="news_box">
-          <a href="index.jsp" target="_parent"><img src="images/chasyi-nastennyie-futbolnyiy-myach.jpg" alt="image 1" /></a>
+          <a href="start_page.jsp" target="_parent"><img src="images/chasyi-nastennyie-futbolnyiy-myach.jpg" alt="image 1" /></a>
           <p><a href="#">Робочий день буде зменшено на одну годину</a></p>
 
           <div class="cleaner"></div>
         </div>
 
         <div class="news_box">
-          <a href="index.jsp" target="_parent"><img src="images/table.jpg" alt="image 2" /></a>
+          <a href="start_page.jsp" target="_parent"><img src="images/table.jpg" alt="image 2" /></a>
           <p><a href="#">Відбудеться нарада головних адміністраторів</a></p>
 
           <div class="cleaner"></div>

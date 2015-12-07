@@ -82,7 +82,6 @@ public class Correct_user extends HttpServlet {
         request.setAttribute("problem", problem);
         request.setAttribute("tm", s);
         dispatcher.forward(request, response);
-//        response.sendRedirect("/index.jsp");
 
     }
 }

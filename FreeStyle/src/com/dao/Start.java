@@ -33,7 +33,7 @@ public class Start extends HttpServlet {
         sf = configuration.buildSessionFactory();
         session = sf.openSession();
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/start_page.jsp");
         dispatcher.forward(request, response);
     }
 }
