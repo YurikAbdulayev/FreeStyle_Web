@@ -26,27 +26,30 @@ public class ThisClient extends HttpServlet {
 
     Start start;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            System.out.println("idi = " + request.getAttribute("idi"));
-        }catch (Exception e){
-            System.out.println("nothing");
-        }
-        System.out.println(Integer.parseInt(request.getParameter("idcount")));
-        try {
-        users = (Users) start.session.load(Users.class, Integer.parseInt(request.getParameter("idcount")));
-        monOfUs = (MonOfUs) start.session.load(MonOfUs.class, Integer.parseInt(request.getParameter("idcount")));
-        problem = (Problem) start.session.load(Problem.class, Integer.parseInt(request.getParameter("idcount")));
-        }catch (ObjectNotFoundException e){
-            System.out.println("errrrrrrrrrrror");
-        }
-        String s = "user";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/thisclient.jsp");
 
-        request.setAttribute("users", users);
-        request.setAttribute("monofus", monOfUs);
-        request.setAttribute("problem", problem);
-        request.setAttribute("tm",s);
-        dispatcher.forward(request, response);
+        try {
+            if (request.getParameter("idcount") != "") {
+                users = (Users) start.session.load(Users.class, Integer.parseInt(request.getParameter("idcount")));
+                monOfUs = (MonOfUs) start.session.load(MonOfUs.class, Integer.parseInt(request.getParameter("idcount")));
+                problem = (Problem) start.session.load(Problem.class, Integer.parseInt(request.getParameter("idcount")));
+                String s = "user";
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/thisclient.jsp");
+
+                request.setAttribute("users", users);
+                request.setAttribute("monofus", monOfUs);
+                request.setAttribute("problem", problem);
+                request.setAttribute("tm", s);
+                dispatcher.forward(request, response);
+            } else {
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/corporate.jsp");
+                request.setAttribute("message", "Введіть значення");
+                dispatcher.forward(request, response);
+            }
+        }catch (Exception e){
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/corporate.jsp");
+            request.setAttribute("message", "Не існує!");
+            dispatcher.forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

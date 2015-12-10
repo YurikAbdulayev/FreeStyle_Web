@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Þðèê on 22.11.2015.
+ * Created by ï¿½ï¿½ï¿½ï¿½ on 22.11.2015.
  */
 @WebServlet("/correct")
 public class Correct_user extends HttpServlet {
@@ -28,17 +28,10 @@ public class Correct_user extends HttpServlet {
 
     Start start;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-        try {
-            users = (Users) start.session.load(Users.class, Integer.parseInt(request.getParameter("id")));
-            monOfUs = (MonOfUs) start.session.load(MonOfUs.class, Integer.parseInt(request.getParameter("id")));
-            problem = (Problem) start.session.load(Problem.class, Integer.parseInt(request.getParameter("id")));
-        }catch (ObjectNotFoundException e){
-            System.out.println("errrrrrrrrrrror");
-        }
+        users = (Users) start.session.load(Users.class, Integer.parseInt(request.getParameter("id")));
+        monOfUs = (MonOfUs) start.session.load(MonOfUs.class, Integer.parseInt(request.getParameter("id")));
+        problem = (Problem) start.session.load(Problem.class, Integer.parseInt(request.getParameter("id")));
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/correct_user.jsp");
-
         request.setAttribute("users", users);
         request.setAttribute("monofus", monOfUs);
         request.setAttribute("problem", problem);
@@ -66,14 +59,9 @@ public class Correct_user extends HttpServlet {
         problems.setProblem(request.getParameter("c_problem"));
 
         start.session.getTransaction().commit();
-
-        try {
             users = (Users) start.session.load(Users.class, Integer.parseInt(id));
             monOfUs = (MonOfUs) start.session.load(MonOfUs.class, Integer.parseInt(id));
             problem = (Problem) start.session.load(Problem.class, Integer.parseInt(id));
-        }catch (ObjectNotFoundException e){
-            System.out.println("error");
-        }
         Boolean s = true;
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/thisclient.jsp");
 

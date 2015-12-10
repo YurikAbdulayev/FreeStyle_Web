@@ -32,7 +32,7 @@ public class UsersTable extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         System.out.println("OP doGet UsersTable");
-        try {
+//        try {
             String s = "test message";
 
         executeQuery();
@@ -42,10 +42,10 @@ public class UsersTable extends javax.servlet.http.HttpServlet {
             request.setAttribute("tm", s);
             dispatcher.forward(request, response);
 
-        }catch (Exception e){
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/corporate.jsp");
-            dispatcher.forward(request, response);
-
-        }
+//        }catch (Exception e){
+//            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/corporate.jsp");
+//            dispatcher.forward(request, response);
+//
+//        }
     }
 }

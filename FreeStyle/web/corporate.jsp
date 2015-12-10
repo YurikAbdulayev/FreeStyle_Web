@@ -74,11 +74,8 @@
     <div id="templatemo_content">
       <br>
       <form action="/thisClient" method="post" style="margin-bottom: 0em; ">
-      <a><input type="text" name="idcount" >
+      <a><input type="text" placeholder="${message}" name="idcount" >
         <input type="submit" value="Пошук клієнта"  >
-
-        <%--<img src="images/table.jpg" alt="1"></a>--%>
-      <%--<a href="start_page.jsp"><img src="images/table.jpg" alt="1"></a>--%>
       </form>
       </br>
      <td>

@@ -32,7 +32,7 @@ public class DelUser extends HttpServlet {
             start.session.delete(monOfUs);
             problem = (Problem) start.session.load(Problem.class, Integer.parseInt(request.getParameter("iddel")));
             start.session.delete(problem);
-            response.sendRedirect("/all_users_table");
+            response.sendRedirect("/users_table");
             start.session.getTransaction().commit();
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "Error", "error 'dell'", JOptionPane.OK_OPTION);

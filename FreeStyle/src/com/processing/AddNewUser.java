@@ -20,7 +20,6 @@ import java.io.IOException;
 @WebServlet("/addNewUser")
 public class AddNewUser extends HttpServlet {
         Start start;
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(request.getParameter("tflogin") != "") {
             try {
